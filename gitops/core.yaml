@@ -47,7 +47,7 @@ spec:
       source:
         repoURL: https://github.com/1aziz/klab-base.git
         targetRevision: HEAD
-        path: "apps/{{path.basename}}"
+        path: "apps/core/{{path.basename}}"
       syncPolicy:
         automated:
           allowEmpty: true
