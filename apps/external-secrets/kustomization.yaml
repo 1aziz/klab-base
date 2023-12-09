@@ -4,6 +4,5 @@ kind: Kustomization
 
 helmCharts:
 - name: external-secrets
-  releaseName: external-secrets
   version: 0.9.9
   repo: https://charts.external-secrets.io
