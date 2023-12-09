@@ -33,6 +33,8 @@ spec:
     - git:
         files:
           - path: apps/**/meta.yaml
+        values:
+          project: "core"
         repoURL: https://github.com/1aziz/klab-base.git
         revision: HEAD
   template:
