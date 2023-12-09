@@ -6,4 +6,5 @@ namespace: external-secrets
 helmCharts:
 - name: external-secrets
   version: 0.9.9
+  releaseName: external-secrets
   repo: https://charts.external-secrets.io

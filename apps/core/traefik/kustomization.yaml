@@ -10,4 +10,5 @@ resources:
 helmCharts:
   - name: traefik
     version: 26.0.0
+    releaseName: traefik
     repo: https://traefik.github.io/charts
