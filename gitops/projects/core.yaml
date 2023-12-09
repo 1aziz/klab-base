@@ -31,10 +31,8 @@ metadata:
 spec:
   generators:
     - git:
-        files:
-          - path: apps/**/meta.yaml
-        values:
-          project: "core"
+        directories:
+          - path: apps/core/*
         repoURL: https://github.com/1aziz/klab-base.git
         revision: HEAD
   template:
@@ -44,7 +42,8 @@ spec:
     spec:
       destination:
         server: "https://kubernetes.default.svc"
-      project: "{{ project }}"
+        namespace: "{{ namespace }}"
+      project: "core"
       source:
         repoURL: https://github.com/1aziz/klab-base.git
         targetRevision: HEAD
