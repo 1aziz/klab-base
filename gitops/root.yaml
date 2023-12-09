@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: gitops/projects
+    path: gitops
     repoURL: https://github.com/1aziz/klab-base.git
   syncPolicy:
     automated:
