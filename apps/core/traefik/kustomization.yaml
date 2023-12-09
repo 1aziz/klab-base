@@ -7,6 +7,3 @@ helmCharts:
   - name: traefik
     version: 26.0.0
     repo: https://traefik.github.io/charts
-    valuesInline:
-      providers:
-        kubernetesCRD: enabled
