@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: prometheus
 
 helmCharts:
-  - name: kube-prometheus-stack
-    version: 55.1.0
+  - name: prometheus
+    version: 25.8.1
     releaseName: prometheus
     repo: https://prometheus-community.github.io/helm-charts
     includeCRDs: true
