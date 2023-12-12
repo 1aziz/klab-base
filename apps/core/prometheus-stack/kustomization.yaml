@@ -8,3 +8,4 @@ helmCharts:
     version: 55.1.0
     releaseName: prometheus
     repo: https://prometheus-community.github.io/helm-charts
+    includeCRDs: true
