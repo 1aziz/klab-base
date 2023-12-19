@@ -6,9 +6,3 @@ namespace: metalb
 resources:
   - https://raw.githubusercontent.com/metallb/metallb/v0.13.12/config/manifests/metallb-native.yaml
 
-configMapGenerator:
-- name: job-inputs
-  behavior: merge
-  literals:
-  - key1=newval1
-
