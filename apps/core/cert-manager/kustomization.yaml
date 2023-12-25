@@ -9,5 +9,11 @@ helmCharts:
     releaseName: cert-manager
     repo: https://charts.jetstack.io
     valuesInline:
+      global:
+        leaderElection:
+          namespace: cert-manager
+        webhook:
+          securePort: 10251
+          hostNetwork: true
       installCRDs: true
       namespace: cert-manager
