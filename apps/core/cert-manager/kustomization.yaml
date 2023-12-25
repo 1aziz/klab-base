@@ -4,9 +4,9 @@ kind: Kustomization
 namespace: cert-manager
 
 helmCharts:
-	- name: cert-manager
-		version: 1.13.3
-		releaseName: cert-manager
-		repo: https://charts.jetstack.io
-		valuesInline:
+  - name: cert-manager
+    version: 1.13.3
+    releaseName: cert-manager
+    repo: https://charts.jetstack.io
+    valuesInline:
       installCRDs: true
