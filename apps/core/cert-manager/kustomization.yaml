@@ -9,4 +9,7 @@ helmCharts:
     releaseName: cert-manager
     repo: https://charts.jetstack.io
     valuesInline:
+      global:
+        leaderElection:
+          namespace: cert-manager
       installCRDs: true
