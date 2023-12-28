@@ -11,17 +11,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.klab.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: argocd-server
-            port:
-              name: https
+    - host: argocd.klab.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  name: https
   tls:
-  - hosts:
-    - argocd.klab.com
-    secretName: argocd-server-tls
+    - hosts:
+        - argocd.klab.com
+      secretName: argocd-server-tls
