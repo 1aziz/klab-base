@@ -36,25 +36,25 @@ spec:
       - path: apps/core/**/kustomization.yaml
       repoURL: https://github.com/1aziz/klab-base.git
       revision: HEAD
-    template:
-      metadata:
-        name: "{{path.basename}}"
-        namespace: argocd
-        finalizers:
-        - resources-finalizer.argocd.argoproj.io
-      spec:
-        destination:
-          server: "https://kubernetes.default.svc"
-          namespace: "{{namespace}}"
-        project: "core"
-        source:
-          repoURL: https://github.com/1aziz/klab-base.git
-          targetRevision: HEAD
-          path: "apps/core/{{path.basename}}"
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true
-          syncOptions:
-          - CreateNamespace=true
-          - PruneLast=true
+  template:
+    metadata:
+      name: "{{path.basename}}"
+      namespace: argocd
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    spec:
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: "{{namespace}}"
+      project: "core"
+      source:
+        repoURL: https://github.com/1aziz/klab-base.git
+        targetRevision: HEAD
+        path: "apps/core/{{path.basename}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true
