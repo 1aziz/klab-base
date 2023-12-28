@@ -2,59 +2,59 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-	annotations:
-		argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
-		argocd.argoproj.io/sync-options: PruneLast=true
-		argocd.argoproj.io/sync-wave: "-2"
-	name: core
-	namespace: argocd
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  name: core
+  namespace: argocd
 spec:
-	clusterResourceWhitelist:
-    - group: "*"
-			kind: "*"
-	description: core project
-	destinations:
-		- namespace: "*"
-			server: "*"
-	namespaceResourceWhitelist:
-		- group: "*"
-			kind: "*"
-	sourceRepos:
-		- "*"
+  clusterResourceWhitelist:
+  - group: "*"
+    kind: "*"
+  description: core project
+  destinations:
+  - namespace: "*"
+    server: "*"
+  namespaceResourceWhitelist:
+  - group: "*"
+    kind: "*"
+  sourceRepos:
+  - "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-	annotations:
-		argocd.argoproj.io/sync-wave: "0"
-	name: core
-	namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: core
+  namespace: argocd
 spec:
-	generators:
-		- git:
-				files:
-					- path: apps/core/**/kustomization.yaml
-				repoURL: https://github.com/1aziz/klab-base.git
-				revision: HEAD
-	template:
-		metadata:
-			name: "{{path.basename}}"
-			namespace: argocd
-			finalizers:
-			- resources-finalizer.argocd.argoproj.io
-		spec:
-			destination:
-				server: "https://kubernetes.default.svc"
-				namespace: "{{namespace}}"
-			project: "core"
-			source:
-				repoURL: https://github.com/1aziz/klab-base.git
-				targetRevision: HEAD
-				path: "apps/core/{{path.basename}}"
-			syncPolicy:
-				automated:
-					prune: true
-					selfHeal: true
-				syncOptions:
-				- CreateNamespace=true
-				- PruneLast=true
+  generators:
+  - git:
+      files:
+      - path: apps/core/**/kustomization.yaml
+      repoURL: https://github.com/1aziz/klab-base.git
+      revision: HEAD
+    template:
+      metadata:
+        name: "{{path.basename}}"
+        namespace: argocd
+        finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      spec:
+        destination:
+          server: "https://kubernetes.default.svc"
+          namespace: "{{namespace}}"
+        project: "core"
+        source:
+          repoURL: https://github.com/1aziz/klab-base.git
+          targetRevision: HEAD
+          path: "apps/core/{{path.basename}}"
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+          syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
