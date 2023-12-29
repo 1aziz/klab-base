@@ -3,27 +3,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-ingress
-  namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-    - host: 192-168-2-200.nip.io
+    - host: 192.168.2.200.nip.io
       http:
         paths:
-          - path: /
+          - path: /argo-cd
             pathType: Prefix
             backend:
               service:
                 name: argocd-server
                 port:
                   name: https
-  tls:
-    - hosts:
-        - 192-168-2-200.nip.io
-      secretName: argocd-server-tls

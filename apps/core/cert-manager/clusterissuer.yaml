@@ -3,10 +3,9 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
-  namespace: cert-manager
 spec:
   acme:
-    server: https://acme-staging.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: klab@klab.com
     privateKeySecretRef:
       name: letsencrypt-account-key
@@ -14,3 +13,5 @@ spec:
     - http01:
         ingress:
           class: nginx
+
+ server: https://acme-v02.api.letsencrypt.org/directory

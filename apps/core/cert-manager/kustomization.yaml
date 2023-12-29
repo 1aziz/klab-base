@@ -17,3 +17,6 @@ helmCharts:
           hostNetwork: true
       installCRDs: true
       namespace: cert-manager
+
+resources:
+  - clusterissuer.yaml
