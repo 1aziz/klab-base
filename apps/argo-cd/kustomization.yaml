@@ -4,11 +4,12 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.2/manifests/install.yaml
-- ingress.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.9.2/manifests/install.yaml
+  - ingress.yaml
 
 configMapGenerator:
-- name: argocd-cm
-  behavior: merge
-  literals:
-  - kustomize.buildOptions=--enable-helm
+  - name: argocd-cm
+    behavior: merge
+    literals:
+      - kustomize.buildOptions=--enable-helm
+      - baseURL=https://lab.azizified.com/argo-cd

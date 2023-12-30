@@ -13,5 +13,5 @@ helmCharts:
         service:
           externalTrafficPolicy: Local
 
-# resources:
-#   - tls.yaml
+resources:
+  - tls.yaml
