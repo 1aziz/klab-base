@@ -8,6 +8,10 @@ helmCharts:
     version: 4.9.0
     releaseName: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
+    valuesInline:
+      controller:
+        service:
+          externalTrafficPolicy: Local
 
 # resources:
 #   - tls.yaml
