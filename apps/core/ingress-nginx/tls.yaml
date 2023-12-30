@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: tls-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: cloudflare-issuer
 spec:
   ingressClassName: nginx
   rules:
