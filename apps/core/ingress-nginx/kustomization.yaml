@@ -9,5 +9,5 @@ helmCharts:
     releaseName: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
 
-resources:
-  - tls.yaml
+# resources:
+#   - tls.yaml
