@@ -8,10 +8,6 @@ helmCharts:
     version: 4.9.0
     releaseName: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
-    valuesInline:
-      controller:
-        service:
-          loadBalancerIP: 192.168.2.200
 
 resources:
   - tls.yaml
