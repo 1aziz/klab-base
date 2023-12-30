@@ -2,5 +2,6 @@ charts
 build
 .envrc
 .env*
-.pem
-.crt
+*.pem
+*.crt
+*.key

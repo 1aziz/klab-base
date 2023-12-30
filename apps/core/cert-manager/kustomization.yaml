@@ -20,8 +20,4 @@ helmCharts:
 
 resources:
   - clusterissuer.yaml
-
-secretGenerator:
-  - name: cloudflare-api-token-secret
-    envs:
-      - .env.secret.cf-token
+  - sealedsecret.yaml
