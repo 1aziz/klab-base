@@ -18,7 +18,7 @@ This repository contains configurations to bootstrap and manage a simple home in
 
 ### Configuring MetalLB
 
-Before delving into the setup process, it is crucial to identify the available IP addresses within our network that can be assigned to MetalLB. To accomplish this, examine the IP address space of your router and utilize the Visual Subnet Calculator from Sargasso tool. This tool will assist you in determining the range of available IPs.
+Before delving into the setup process, it is crucial to identify the available IP addresses within our network that can be assigned to MetalLB. To accomplish this, examine the IP address space of your router and utilize the [Visual Subnet Calculator from Sargasso](https://www.davidc.net/sites/default/subnets/subnets.html) tool. This tool will assist you in determining the range of available IPs.
 
 Once you have identified the range, subtract the range used by your router's DHCP server from the resulting range. This updated range can then be utilized by MetalLB and specified in `apps/core/metalb/configs.yaml``.
 

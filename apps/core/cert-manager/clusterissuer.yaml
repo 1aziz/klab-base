@@ -10,8 +10,8 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-account-key
     solvers:
-    - http01:
-        ingress:
-          class: nginx
-
- server: https://acme-v02.api.letsencrypt.org/directory
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token

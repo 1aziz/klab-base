@@ -5,7 +5,7 @@ metadata:
   name: pool
 spec:
   addresses:
-  - 192.168.2.195-192.168.2.200
+  - 192.168.2.201-192.168.2.253
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
