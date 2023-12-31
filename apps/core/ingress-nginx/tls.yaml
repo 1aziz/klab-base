@@ -8,8 +8,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "*.lab.azizified.com"
+    - host: "lab.azizified.com"
   tls:
     - hosts:
-        - "*.lab.azizified.com"
+        - "lab.azizified.com"
       secretName: tls
