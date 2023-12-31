@@ -3,10 +3,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
   rules:
@@ -19,8 +15,4 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  name: https
-  tls:
-    - hosts:
-        - argo-cd.azizified.com
-      secretName: argocd-server-tls
+                  name: http
