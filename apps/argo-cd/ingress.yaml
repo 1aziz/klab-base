@@ -4,29 +4,23 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "/argo-cd/$2"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - "lab.azizified.com"
-      secretName: tls
   rules:
-    - host: lab.azizified.com
+    - host: argocd.lab.azizified.com
       http:
         paths:
-          - path: /argo-cd
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: argocd-server
                 port:
                   name: https
-          - path: /argo-cd(/|$)(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  name: https
+  tls:
+    - hosts:
+        - argo-cd.azizified.com
+      secretName: argocd-server-tls

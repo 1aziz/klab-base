@@ -12,4 +12,3 @@ configMapGenerator:
     behavior: merge
     literals:
       - kustomize.buildOptions=--enable-helm
-      - baseURL=https://lab.azizified.com/argo-cd
