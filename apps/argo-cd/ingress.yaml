@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "/argo-cd//$2"
+    nginx.ingress.kubernetes.io/rewrite-target: "/argo-cd/$2"
 spec:
   ingressClassName: nginx
   rules:
