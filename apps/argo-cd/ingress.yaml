@@ -5,8 +5,13 @@ metadata:
   name: argocd-server-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: "/argo-cd/$2"
+    cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - "lab.azizified.com"
+      secretName: tls
   rules:
     - host: lab.azizified.com
       http:
